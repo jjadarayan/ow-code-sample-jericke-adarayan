@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "sku": { "type": "string", "pattern": "^\\d{14}[A-Z]{3}$" },
+        "display_pn": { "type": "string", "pattern": "^\\d{8}-\\d{6}[A-Z]{3}$" },
+        "be_product_cat_name": { "type": "string" },
+        "short_description": { "type": "string" },
+        "lead_time": { "type": "string" },
+        "meta_description": { "type": "string" },
+        "meta_title": { "type": "string" },
+        "part_status": { "type": "string" },
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "image": { "type": "string" },
+                    "prod_drawing": { "type": "string" },
+                    "datasheet": { "type": "string" },
+                    "3d_model_iges": { "type": ["string", "null"] }
+                },
+                "required": ["image", "prod_drawing", "datasheet", "3d_model_iges"]
+            }
+        },
+        "attributes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "key": { "type": "string" },
+                    "value": { "type": ["string", "null"] }
+                },
+                "required": ["key", "value"]
+            }
+        }
+    },
+    "required": ["sku", "display_pn", "be_product_cat_name", "short_description", "lead_time", "meta_description", "meta_title", "part_status", "images", "attributes"]
+}
